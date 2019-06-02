@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import AddNewRental from "../components/AddNewRental/AddNewRental";
 import UserProfile from "../components/UserProfile/UserProfile";
 import RentalsContent from "../components/RentalsContent/RentalsContent";
-import BookingsContent from "../components/BookingsContent/BookingsContent"
+import BookingsContent from "../components/BookingsContent/BookingsContent";
+import PendingBookings from "../components/PendingBookings/PendingBookings";
 export default class Dashboard extends Component {
     state = {
         isAddNewRental: false,
         isUserProfile: true,
         isRentals: false,
-        isBookings: false
+        isBookings: false,
+        isPendings: false
     };
 
 
@@ -17,7 +19,8 @@ export default class Dashboard extends Component {
             isAddNewRental: true,
             isUserProfile: false,
             isRentals: false,
-            isBookings: false
+            isBookings: false,
+            isPendings: false
         })
     };
 
@@ -26,7 +29,8 @@ export default class Dashboard extends Component {
             isAddNewRental: false,
             isUserProfile: true,
             isRentals: false,
-            isBookings: false
+            isBookings: false,
+            isPendings: false
         })
     };
 
@@ -35,7 +39,8 @@ export default class Dashboard extends Component {
             isAddNewRental: false,
             isUserProfile: false,
             isRentals: true,
-            isBookings: false
+            isBookings: false,
+            isPendings: false
         })
     };
 
@@ -44,13 +49,26 @@ export default class Dashboard extends Component {
             isAddNewRental: false,
             isUserProfile: false,
             isRentals: false,
-            isBookings: true
-        })
+            isBookings: true,
+            isPendings: false
+        });
+
+
+    }
+
+    renderPendingBookings = () => {
+        this.setState({
+            isAddNewRental: false,
+            isUserProfile: false,
+            isRentals: false,
+            isBookings: false,
+            isPendings: true
+        });
     }
 
 
     render() {
-        const { isAddNewRental, isUserProfile, isRentals, isBookings } = this.state;
+        const { isAddNewRental, isUserProfile, isRentals, isBookings, isPendings } = this.state;
         return (
             <div class="container__of-dashboard">
                 <header class="header">
@@ -97,8 +115,8 @@ export default class Dashboard extends Component {
                                 </a>
                             </li>
                             <li class={isRentals ?
-                                    "side-nav__item side-nav__item--active" :
-                                    " side-nav__item"}
+                                "side-nav__item side-nav__item--active" :
+                                " side-nav__item"}
                                 onClick={this.renderRentals}
                             >
                                 <a href="#" class="side-nav__link">
@@ -112,8 +130,8 @@ export default class Dashboard extends Component {
                                 </a>
                             </li>
                             <li class={isBookings ?
-                                    "side-nav__item side-nav__item--active" :
-                                    " side-nav__item"}
+                                "side-nav__item side-nav__item--active" :
+                                " side-nav__item"}
                                 onClick={this.renderBookings}
                             >
                                 <a href="#" class="side-nav__link">
@@ -126,10 +144,25 @@ export default class Dashboard extends Component {
                                     <span class="side-nav__text">Bookings</span>
                                 </a>
                             </li>
-                            <li
-                               class={isUserProfile ?
+                            <li class={isBookings ?
                                 "side-nav__item side-nav__item--active" :
                                 " side-nav__item"}
+                                onClick={this.renderPendingBookings}
+                            >
+                                <a href="#" class="side-nav__link">
+                                    <i className='fa fa-random' style={{
+                                        color: '#bbb',
+                                        fontSize: "16px",
+                                        marginLeft: "-10px",
+                                        marginRight: "10px"
+                                    }}></i>
+                                    <span class="side-nav__text">Pendings</span>
+                                </a>
+                            </li>
+                            <li
+                                class={isUserProfile ?
+                                    "side-nav__item side-nav__item--active" :
+                                    " side-nav__item"}
                                 onClick={this.renderUserProfile}>
                                 <a href="#" class="side-nav__link">
                                     <i className='fa fa-user' style={{
@@ -152,6 +185,7 @@ export default class Dashboard extends Component {
                         {isUserProfile ? <UserProfile /> : ""}
                         {isRentals ? <RentalsContent /> : ""}
                         {isBookings ? <BookingsContent /> : ""}
+                        {isPendings ? <PendingBookings /> : ""}
                     </main>
                 </div>
             </div>

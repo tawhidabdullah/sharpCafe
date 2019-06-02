@@ -59,6 +59,8 @@
 .dashboard__main-content {
     background: var(--color-grey-light1);
     flex: 1;
+    overflow-y: scroll;
+    height: 80vh;
 
 
     .create-rental-heading {

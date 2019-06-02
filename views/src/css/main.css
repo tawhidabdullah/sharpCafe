@@ -93,7 +93,9 @@ body {
 
 .dashboard__main-content {
   background: var(--color-grey-light1);
-  flex: 1; }
+  flex: 1;
+  overflow-y: scroll;
+  height: 80vh; }
   .dashboard__main-content .create-rental-heading {
     padding-top: 30px;
     margin-left: 20px; }
