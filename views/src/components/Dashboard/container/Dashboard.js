@@ -1,30 +1,56 @@
 import React, { Component } from 'react';
 import AddNewRental from "../components/AddNewRental/AddNewRental";
 import UserProfile from "../components/UserProfile/UserProfile";
+import RentalsContent from "../components/RentalsContent/RentalsContent";
+import BookingsContent from "../components/BookingsContent/BookingsContent"
 export default class Dashboard extends Component {
     state = {
         isAddNewRental: false,
-        isUserProfile: true
+        isUserProfile: true,
+        isRentals: false,
+        isBookings: false
     };
 
 
     renderAddNewRental = () => {
         this.setState({
             isAddNewRental: true,
-            isUserProfile: false
+            isUserProfile: false,
+            isRentals: false,
+            isBookings: false
         })
     };
 
     renderUserProfile = () => {
         this.setState({
             isAddNewRental: false,
-            isUserProfile: true
+            isUserProfile: true,
+            isRentals: false,
+            isBookings: false
         })
     };
 
+    renderRentals = () => {
+        this.setState({
+            isAddNewRental: false,
+            isUserProfile: false,
+            isRentals : true,
+            isBookings: false
+        })
+    };
+
+    renderBookings = () => {
+        this.setState({
+            isAddNewRental: false,
+            isUserProfile: false,
+            isRentals : false,
+            isBookings: true
+        })
+    }
+
 
     render() {
-        const {isAddNewRental, isUserProfile} = this.state; 
+        const {isAddNewRental, isUserProfile, isRentals, isBookings} = this.state; 
         return (
             <div class="container__of-dashboard">
                 <header class="header">
@@ -68,10 +94,20 @@ export default class Dashboard extends Component {
                                     <span class="side-nav__text">Add New Rental</span>
                                 </a>
                             </li>
-                            <li class="side-nav__item">
+                            <li class="side-nav__item"
+                            onClick={this.renderRentals}
+                            >
                                 <a href="#" class="side-nav__link">
 
-                                    <span class="side-nav__text">Products</span>
+                                    <span class="side-nav__text">Rentals</span>
+                                </a>
+                            </li>
+                            <li class="side-nav__item"
+                            onClick={this.renderBookings}
+                            >
+                                <a href="#" class="side-nav__link">
+
+                                    <span class="side-nav__text">Bookings</span>
                                 </a>
                             </li>
                             <li
@@ -91,6 +127,8 @@ export default class Dashboard extends Component {
                     <main class="dashboard__main-content">
                        {isAddNewRental ? <AddNewRental/> : ""}
                        {isUserProfile ? <UserProfile /> : ""}
+                       {isRentals ? <RentalsContent /> : ""}
+                       {isBookings ? <BookingsContent /> : ""}
                     </main>
                 </div>
             </div>

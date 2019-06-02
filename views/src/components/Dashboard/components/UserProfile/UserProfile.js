@@ -11,12 +11,6 @@ export default class UserProfile extends Component {
                 <div class="userProfileContainer">
                     <div class="userProfileContainer__info">
                         <div className='userInfoWrapper'>
-                            {/* <div id="input-container">
-                            <form id="get-username">
-                                <input placeholder="Enter Github user ID" id="user-name-input" name="user-name-input" />
-                                <button onClick="getUserProfile(event)">Get User</button>
-                            </form>
-                        </div> */}
                             <div id="user-profile">
                                 <div id="user-profile-img"></div>
                                 <div id="user-info">

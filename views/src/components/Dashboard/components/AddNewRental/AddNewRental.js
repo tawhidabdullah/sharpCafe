@@ -77,15 +77,6 @@ export default class AddNewRental extends Component {
                         </div>
                     </div>
                 </div>
-                <div class="cta">
-                    <h2 class="cta__book-now">
-                        Good news! We have got 5 great restraunt on your birthday!
-                    </h2>
-                    <button class="btn">
-                        <span class="btn__visible">Book now</span>
-                        <span class="btn__invisible">Only 3 cafe left</span>
-                    </button>
-                </div>
             </>
         )
     }
