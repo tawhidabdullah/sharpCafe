@@ -34,7 +34,7 @@ export default class Dashboard extends Component {
         this.setState({
             isAddNewRental: false,
             isUserProfile: false,
-            isRentals : true,
+            isRentals: true,
             isBookings: false
         })
     };
@@ -43,14 +43,14 @@ export default class Dashboard extends Component {
         this.setState({
             isAddNewRental: false,
             isUserProfile: false,
-            isRentals : false,
+            isRentals: false,
             isBookings: true
         })
     }
 
 
     render() {
-        const {isAddNewRental, isUserProfile, isRentals, isBookings} = this.state; 
+        const { isAddNewRental, isUserProfile, isRentals, isBookings } = this.state;
         return (
             <div class="container__of-dashboard">
                 <header class="header">
@@ -79,56 +79,79 @@ export default class Dashboard extends Component {
                 <div class="content">
                     <nav class="sidebar">
                         <ul class="side-nav">
-                            <li class="side-nav__item">
-                                <a href="#" class="side-nav__link">
-
-                                    <span class="side-nav__text">home</span>
-                                </a>
-                            </li>
                             <li
-                                class="side-nav__item "
+                                class={isAddNewRental ?
+                                    "side-nav__item side-nav__item--active" :
+                                    " side-nav__item"}
                                 onClick={this.renderAddNewRental}
                             >
-                                <a href="#" class="side-nav__link side-nav__link">
 
+                                <a href="#" class="side-nav__link">
+                                    <i className='fa fa-edit' style={{
+                                        color: '#bbb',
+                                        fontSize: "16px",
+                                        marginLeft: "-10px",
+                                        marginRight: "10px"
+                                    }}></i>
                                     <span class="side-nav__text">Add New Rental</span>
                                 </a>
                             </li>
-                            <li class="side-nav__item"
-                            onClick={this.renderRentals}
+                            <li class={isRentals ?
+                                    "side-nav__item side-nav__item--active" :
+                                    " side-nav__item"}
+                                onClick={this.renderRentals}
                             >
                                 <a href="#" class="side-nav__link">
-
+                                    <i className='fa fa-retweet' style={{
+                                        color: '#bbb',
+                                        fontSize: "16px",
+                                        marginLeft: "-10px",
+                                        marginRight: "10px"
+                                    }}></i>
                                     <span class="side-nav__text">Rentals</span>
                                 </a>
                             </li>
-                            <li class="side-nav__item"
-                            onClick={this.renderBookings}
+                            <li class={isBookings ?
+                                    "side-nav__item side-nav__item--active" :
+                                    " side-nav__item"}
+                                onClick={this.renderBookings}
                             >
                                 <a href="#" class="side-nav__link">
-
+                                    <i className='fa fa-ticket' style={{
+                                        color: '#bbb',
+                                        fontSize: "16px",
+                                        marginLeft: "-10px",
+                                        marginRight: "10px"
+                                    }}></i>
                                     <span class="side-nav__text">Bookings</span>
                                 </a>
                             </li>
                             <li
-                                class="side-nav__item side-nav__item--active"
+                               class={isUserProfile ?
+                                "side-nav__item side-nav__item--active" :
+                                " side-nav__item"}
                                 onClick={this.renderUserProfile}>
                                 <a href="#" class="side-nav__link">
-
+                                    <i className='fa fa-user' style={{
+                                        color: '#bbb',
+                                        fontSize: "16px",
+                                        marginLeft: "-10px",
+                                        marginRight: "10px"
+                                    }}></i>
                                     <span class="side-nav__text">User Profile</span>
                                 </a>
                             </li>
                         </ul>
 
                         <div class="legal">
-                            &copy; 2018 copyright , All right reserve by Tawhid Abdullah
+                            &copy; 2019 copyright , All right reserve by Tawhid Abdullah
                     </div>
                     </nav>
                     <main class="dashboard__main-content">
-                       {isAddNewRental ? <AddNewRental/> : ""}
-                       {isUserProfile ? <UserProfile /> : ""}
-                       {isRentals ? <RentalsContent /> : ""}
-                       {isBookings ? <BookingsContent /> : ""}
+                        {isAddNewRental ? <AddNewRental /> : ""}
+                        {isUserProfile ? <UserProfile /> : ""}
+                        {isRentals ? <RentalsContent /> : ""}
+                        {isBookings ? <BookingsContent /> : ""}
                     </main>
                 </div>
             </div>

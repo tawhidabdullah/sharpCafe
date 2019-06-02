@@ -101,43 +101,12 @@ body {
 
 .horizontal {
     display: flex;
+    justify-content: space-between;
 }
 
-.col.data {
-    border-bottom: 1px solid #eee;
-    padding: 30px 0;
-    position: relative;
-}
-
-.col.data:last-child {
-    border-bottom: 0 none;
-    padding-bottom: 0;
-}
-
-.col.data .content:last-child {
-    flex-grow: 1;
-}
-
-.col .content {
-    position: relative;
-}
-
-.col .content:first-child {
-    flex-basis: 15%;
-    flex-grow: 0;
-}
-
-.col .content:nth-child(2) {
-    flex-basis: 30%;
-}
-
-.col .content:nth-child(3) {
-    flex-basis: 25%;
-}
-
-.col .content:nth-child(4) {
-    text-align: right;
-    flex-basis: 10%;
+.bookings-content {
+    display: flex; 
+    justify-content: space-between;     
 }
 
 .col.header {
@@ -541,3 +510,114 @@ li .img {
     }
 }
 
+
+
+/////////////////
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v13/JTUSjIg1_i6t8kCHKm459Wlhzg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v13/JTURjIg1_i6t8kCHKm45_dJE3gnD-w.ttf) format('truetype');
+}
+.listing-card {
+  font-family: 'Montserrat';
+  width: 100%;
+  min-height: 90px;
+  background-color: white;
+  border-bottom: 0.5px solid #eee;
+  padding: 20px 10px 30px 10px;
+//   background: red; 
+}
+.listing-card .card-wrapper .right-column {
+  float: right;
+//   width: 90px;
+  height: 90px;
+  text-align: center;
+}
+.listing-card .card-wrapper .right-column .heart-rating {
+  margin: 8px 0;
+}
+.listing-card .card-wrapper .right-column .heart-rating .__percentage {
+  font-size: 14px;
+  color: #333;
+}
+.listing-card .card-wrapper .right-column .heart-rating .__votes {
+  display: block;
+  color: #999;
+  font-size: 9px;
+  margin-top: 5px;
+}
+.listing-card .card-wrapper .right-column .action-button {
+  font-family: 'Montserrat';
+  background-color: #cd4557;
+  outline: none;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  line-height: 16px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.listing-card .card-wrapper .poster {
+  float: left;
+  width: 85px;
+  height: 80px;
+  margin-top: -10px;
+  text-align: center;
+  cursor: pointer;
+}
+.listing-card .card-wrapper .poster img {
+  width: 60px;
+  border-radius: 3px;
+}
+.listing-card .card-wrapper .movie-info {
+  margin: 0 80px;
+}
+.listing-card .card-wrapper .movie-info .title {
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+.listing-card .card-wrapper .movie-info .language {
+  display: block;
+  font-size: 10px;
+  color: #999;
+  margin-top: 8px;
+  cursor: pointer;
+}
+.listing-card .card-wrapper .movie-info .genre {
+  font-size: 9px;
+  padding: 0;
+}
+.listing-card .card-wrapper .movie-info .genre li {
+  display: inline-block;
+  color: #bbc9de;
+  cursor: pointer;
+}
+
+.listing-card .card-wrapper .movie-info .genre li:last-child {
+  margin-left: 4px;
+}
+.listing-card .card-wrapper .movie-info .tags {
+  font-size: 12px;
+  padding: 0;
+}
+.listing-card .card-wrapper .movie-info .tags li {
+  display: inline-block;
+  background-color: #edf1f6;
+  color: #919eb4;
+  padding: 2px 4px;
+  margin-right: 3px;
+  cursor: pointer;
+}
+.listing-card .card-wrapper .movie-info .tags li:last-child {
+  margin-right: 0;
+}

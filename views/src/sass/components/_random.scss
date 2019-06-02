@@ -199,7 +199,7 @@
     &__item:hover::before,
     &__item--active::before {
         transform: scaleY(1);
-        width: 2%;
+        width: 7%;
     }
 
     &__item:active::before {
